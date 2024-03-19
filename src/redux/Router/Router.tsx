@@ -14,7 +14,6 @@ const Router = () => {
             <Route path="/" element={<CreateProductForm />} />
             <Route path="/ProductAddedConfirmation" element={<ProductAddedConfirmation />} />
             <Route path="/List" element={<List />} />
-
             <Route path="/UserProducts" element={<UserProducts />} />
             </Routes>
     </Layout>

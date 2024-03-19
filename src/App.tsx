@@ -7,6 +7,7 @@ import {ToastContainer} from "react-toastify";
 
 import Router from './redux/Router/Router';
 import LanguageToggle from './hooks/LanguageToggle';
+import AllProductsNoPagination from './hooks/AllProductsNoPagination';
 
 
 function App() {
@@ -19,10 +20,8 @@ function App() {
   >
     <DarkModeToggle />
     <LanguageToggle />
- 
-
-    <ToastContainer />
     <Router />
+
     </div>
    
   )

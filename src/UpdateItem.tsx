@@ -41,7 +41,7 @@ const UpdateMenuItemForm: React.FC<UpdateMenuItemFormProps> = ({
   const [name, setName] = useState<string>('');
   const [price, setPrice] = useState<string>('');
   const [description, setDescription] = useState<string>('');
-  const [image, setImage] = useState<File | null>(null);
+
   const [isNewProduct, setIsNewProduct] = useState<boolean>(false);
   const [originalPrice, setOriginalPrice] = useState<string>('');
   const [discountPercentage, setDiscountPercentage] = useState<string>('');
@@ -53,8 +53,15 @@ const UpdateMenuItemForm: React.FC<UpdateMenuItemFormProps> = ({
   const [dietaryRestrictions, setDietaryRestrictions] = useState<string>('');
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const [image, setImage] = useState<File | null>(null);
+  const [imagePreview, setImagePreview] = useState<string | null>(null); 
   const [errors, setErrors] = useState<Record<string, string>>({});
+
+  useEffect(() => {
+    if (initialValues.image) {
+      setImagePreview(initialValues.image); // Initialize image preview if image data exists
+    }
+  }, [initialValues]);
 
   useEffect(() => {
     // Update the form fields when initialValues change
@@ -72,6 +79,9 @@ const UpdateMenuItemForm: React.FC<UpdateMenuItemFormProps> = ({
         calories,
         cookingInstructions,
         dietaryRestrictions,
+
+       
+
        
       } = initialValues;
       setName(name || '');
@@ -201,6 +211,7 @@ const UpdateMenuItemForm: React.FC<UpdateMenuItemFormProps> = ({
 
       toast.success('Menu Item Updated Successfully');
       onUpdate();
+      
       onClose();
     } catch (error) {
       console.error(error);

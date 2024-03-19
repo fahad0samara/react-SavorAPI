@@ -166,6 +166,7 @@ const List = () => {
   const exitEditMode = () => {
     setEditMode(false);
     setEditItemId("");
+
   };
 
   const handleView = (item) => {
